@@ -96,6 +96,8 @@ def main():
     if not BOT_TOKEN or not CHANNEL_ID:
         raise RuntimeError("Faltan variables de entorno") 
         
+    cargar_preguntas()     
+        
     problems = load_problems() 
     state = load_state(len(problems))
     
@@ -105,6 +107,9 @@ def main():
     post_to_slack(payload)
     save_state(state)
     print("Publicado:", prob["title"]) 
+
+def cargar_preguntas():
+    raise Exception("Sorry, no hay implementación")
     
 if __name__ == "__main__":
     main()
